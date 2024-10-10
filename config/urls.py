@@ -21,14 +21,14 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
-from config.swagger import swagger_urlpatterns
+from config.swagger import swagger_patterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('book.urls')),
 ]
 
-urlpatterns += swagger_urlpatterns
+urlpatterns += swagger_patterns
 if os.getenv("USE_S3") != 'True':
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
