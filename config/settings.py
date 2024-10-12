@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     # third party apps
     'rest_framework',
     "corsheaders",
-    'drf_yasg'
+    'drf_yasg',
+    "graphene_django",
 
 ]
 CORS_ALLOWED_ORIGINS = [
@@ -177,3 +178,6 @@ else:
     STATIC_ROOT = BASE_DIR / 'static'
     MEDIA_URL = 'media/'
     MEDIA_ROOT = BASE_DIR / 'media'
+GRAPHENE = {
+    "SCHEMA": "book.schema.schema"
+}

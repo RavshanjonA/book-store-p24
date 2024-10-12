@@ -1,4 +1,3 @@
-# 1.forgot-password email ga xabar yuborsin celery orqali
-# 2.register
-# 3.login jwt orqali
-# 4.genre uchun ham endoint chiqarish,
+# 1. genre uchun list, detail, create, update delete
+# 2. book uchun list, detail, create, update delete
+# 3. category uchun list, detail, create, update delete
