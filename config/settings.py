@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "corsheaders",
     'drf_yasg',
     "graphene_django",
+    "graphene_file_upload",
 
 ]
 CORS_ALLOWED_ORIGINS = [
@@ -59,7 +60,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -179,5 +180,5 @@ else:
     MEDIA_URL = 'media/'
     MEDIA_ROOT = BASE_DIR / 'media'
 GRAPHENE = {
-    "SCHEMA": "book.schema.schema"
+    "SCHEMA": "book.graphql.schema"
 }
