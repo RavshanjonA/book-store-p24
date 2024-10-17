@@ -2,6 +2,7 @@ from readline import get_endidx
 from tokenize import generate_tokens
 from unicodedata import category
 
+from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
 
 from book.models import BookCategory, BookGenre, Book
@@ -41,3 +42,25 @@ def delete_book_mutate(id):
     book = get_object_or_404(Book, pk=id)
     book.delete()
     return True
+
+
+def create_genre_mutate(name):
+    genre = BookGenre.objects.create(name=name)
+    return genre
+
+def update_genre_mutate(id, name):
+    genre = get_object_or_404(BookGenre, id=id)
+    genre.name=name
+    genre.save()
+    return genre
+
+
+def create_user_mutate(username, password, password2, email):
+    if password != password2:
+        raise Exception("passwords must be match")
+    if User.objects.filter(username=username).exists():
+        raise Exception(f"{username} username already registered")
+    user = User.objects.create_user(username=username, email=email)
+    user.set_password(password)
+    user.save()
+    return user

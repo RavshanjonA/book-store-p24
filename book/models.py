@@ -15,6 +15,7 @@ class BookCategory(Model):
 
 class BookGenre(Model):
     name = CharField(max_length=255)
+    owner = ForeignKey("auth.User", CASCADE, default=1)
 
     class Meta:
         db_table = "book_genre"
